@@ -8,6 +8,7 @@ import random
 class TrieNode: 
     def __init__(self, parent, value): 
         self.parent = parent
+        #this should not be hardcoded : should be able to include symbols etc... 
         self.children = [None] *26 
         self.isWord = False 
         self.count = 0 
@@ -61,7 +62,8 @@ def loadWords(fn):
 
 def findWords(box, dictionary):
     print('finding words')
-    validWords = [] 
+    #validWords = [] 
+    validWords = set()
     firstLetters = []
 
     for row in range(len(box)):
@@ -108,7 +110,9 @@ def findWords(box, dictionary):
                     print('potential substring : ' + substring)
                     if nextLetterNode.isWord and len(substring) >= 3: 
                         print('valid substring: ' + substring)
-                        validWords.append(substring)                        
+                        #we can add to a set if we want the unique substrings in the grid, or a regular list if we want all of the substrings including duplicates
+                        validWords.add(substring)
+                        #validWords.append(substring)                        
                     #only add it to the queue if the next possible word is in the dictionary
                     firstLetters.append((x2, y2, nextLetterNode, substring, visited))
     return validWords
