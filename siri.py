@@ -130,7 +130,7 @@ for i in range(0,4):
     box.append(row)
     row= []
 
-box = [['h', 'i', 't', 'd'], ['t', 'e', 's', 'l'], ['h', 'j', 'm', 'a'], ['p', 't', 'e', 's']]
+#box = [['h', 'i', 't', 'd'], ['t', 'e', 's', 'l'], ['h', 'j', 'm', 'a'], ['p', 't', 'e', 's']]
 print(box)
 #get the possible characters in the grid
 stringifyRow = []
@@ -141,8 +141,8 @@ wordsInGrid = ''.join(set(''.join(stringifyRow)))
 print(wordsInGrid)
 
 #wordsInGrid = 'hjmdmpte'
-dictionary = loadWords('test.txt')
-#dictionary = loadWords('./google-10000-english/20k.txt')
+#dictionary = loadWords('test.txt')
+dictionary = loadWords('./google-10000-english/20k.txt')
 
 
 #search for words : 
