@@ -148,3 +148,7 @@ dictionary = loadWords('./google-10000-english/20k.txt')
 #search for words : 
 wordsFound = findWords(box, dictionary)
 print(wordsFound)
+f= open("words.txt","w+")
+for word in wordsFound: 
+    f.write(word + '\n')
+
