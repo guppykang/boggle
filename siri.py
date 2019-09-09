@@ -1,9 +1,14 @@
 import re
+import argparse
 import string
 import random 
 
 #take out words in the dictionary that do not start with the letters in the box
 #check to see if the current word is a substring of a possible word to cut on time
+parser = argparse.ArgumentParser()
+parser.add_argument("-s", "--size", help="specify the size of the boggle board", default=4)
+args = parser.parse_args()
+
 
 class TrieNode: 
     def __init__(self, parent, value): 
@@ -123,14 +128,16 @@ letters = string.ascii_letters[:26]
 
 #populate the grid
 box = []
-for i in range(0,4): 
+#the grid must be a square in this case, can always change this easily. 
+for i in range(0, int(args.size)): 
     row = []
-    for j in range(0,4): 
+    for j in range(0, int(args.size)): 
         row.append(random.choice(letters))
     box.append(row)
     row= []
 
 #box = [['h', 'i', 't', 'd'], ['t', 'e', 's', 'l'], ['h', 'j', 'm', 'a'], ['p', 't', 'e', 's']]
+#above grid should output "hit" and "tesla"
 print(box)
 #get the possible characters in the grid
 stringifyRow = []
